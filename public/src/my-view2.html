@@ -7,31 +7,69 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-
+ <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/p5-element/p5-element.html">
 <link rel="import" href="shared-styles.html">
 
+
 <dom-module id="my-view2">
-  <template>
+  <template unresolved>
     <style include="shared-styles">
       :host {
         display: block;
 
         padding: 10px;
       }
+	      p5-element {
+      vertical-align: top;
+      min-width: 350px;
+    }
     </style>
 
     <div class="card">
-      <div class="circle">2</div>
-      <h1>View Two</h1>
+      <div class="circle">20</div>
+      <h1>View Two graphe</h1>
       <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
       <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
+	  <p5-element globalVars="x=10, y=15" setupFunction="createCanvas(500,500);"></p5-element>
     </div>
+
+  <p5-element>one</p5-element>
+   <p5-element id="second"></p5-element>
   </template>
 
+ 
+
+
+  
   <script>
     Polymer({
-      is: 'my-view2'
+      is: 'my-view2',
+	    properties: {
+ 
+    globalVars: {
+      type: String,
+      value: 'x= 15,\ny = 15;',
+      notify: true
+    }
+  },
+	   ready: function() {
+        
+       var self = this;
+	   console.log(self);
+	   self.globalVars.x= 15;
+	   self.globalVars.y = 15;
+       //globalVarsChanged method calls createP5 function in the end.
+      // self._globalVarsChanged();
+
+	   console.log(self.parent);
+	   //second 
+	       var secondInstance = document.querySelector('#second');
+		   console.log(secondInstance);
+   // secondInstance.globalVars = "x=100,\ny=100,\nspeedX = 1,\nspeedY = 1";
+   // secondInstance.drawFunction = "background(255);\nellipse(x, y, 10, 10);\nx+=speedX;\ny+=speedY;\nif(x>width - 5 || x < 5) speedX = -speedX;\nif(y > height - 5 || y < 5) speedY = -speedY;";
+      },
     });
   </script>
 </dom-module>
