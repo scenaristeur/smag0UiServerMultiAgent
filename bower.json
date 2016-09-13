@@ -1,0 +1,29 @@
+{
+  "name": "smag0multiagents",
+  "description": "communication via RDF",
+  "main": "index.js",
+  "authors": [
+    "D.FAVERIS"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "smag0",
+    "rdf",
+    "communication",
+    "sparql",
+    "statement",
+    "fuseki"
+  ],
+  "homepage": "https://github.com/scenaristeur/smag0UiServerMultiAgent",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "sparql-update": "scenaristeur/sparql-update",
+    "sparql-statements": "scenaristeur/sparql-statements"
+  }
+}
