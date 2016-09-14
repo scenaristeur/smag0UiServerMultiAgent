@@ -1,0 +1,64 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-projet">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+
+    <div class="card">
+      <div class="circle">Projet</div>
+      <h1>Ajouter un projet</h1>
+    
+    			<template is="dom-bind">
+				
+				<paper-input
+				type="text" 
+
+				label="Nom du Projet"
+				value="{{sujet::change}}"></paper-input> 
+				
+				<paper-input 
+				type="text"
+
+				label="est un/e"
+				value="{{propriete::change}}"></paper-input>
+				
+				<paper-input 
+				type="text"
+
+				label="un Quoi ?"
+				value="{{objet::change}}"></paper-input>
+				
+				<sparql-update 
+				sujet="{{sujet}}"
+				propriete="{{propriete}}" 
+				objet="{{objet}}">
+				</sparql-update>
+				
+			</template>
+	</div>
+	
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-projet'
+    });
+  </script>
+</dom-module>
